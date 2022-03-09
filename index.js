@@ -9,7 +9,7 @@ import FileLevelProvider from './file-level-provider.js';
 const app = express();
 
 app.get('/pn.js', (_, res) => {
-    res.sendFile(path.resolve('C:/Projects/playcanvas-server-boilerplate/dist/pn.js'));
+    res.sendFile(path.resolve('node_modules/playnetwork/dist/pn.js'));
 });
 
 const privateKey = fs.readFileSync('./ssl/cert.key', 'utf8');
@@ -21,8 +21,8 @@ server.listen(8080);
 
 await pn.initialize({
     levelProvider: new FileLevelProvider('./levels'),
-    scriptsPath: './components',
-    templatesPath: './templates',
+    scriptsPath: 'components',
+    templatesPath: 'templates',
     server: server
 });
 
