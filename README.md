@@ -38,3 +38,27 @@ In this example, saving level is implemented as an example to a file using [`Fil
 So you can easily edit your scene in the Editor, and save it on the server.
 
 Files in [`/levels/`](./levels/) - are in PlayCanvas scene format, and come with project builds.
+
+# Gameplay Code
+
+All gameplay code is in [`./components/`](./components/) directory. And is just a regular PlayCanvas scripts.
+
+# Debugging
+
+It is possible to use Chrome Inspector for debugging of your back-end code, just like client-side code. To run server in debugging mode:
+
+```bash
+npm run debug
+```
+
+Navigate to `chrome://inspect`, and wait a few seconds (it takes some time to discover), then you will see your **Target**, click `inspect`.
+
+In **Sources** tab, you can open `Ctrl + O` any file, and use breakpoints. Alternatively you can use `debugger;` keywork in your scripts, to trigger a breakpoint if Inspector is open.
+
+# Hot Reloading
+
+We encourage the use of hot-reloading of gameplay scripts. This allows to reload gameplay scripts on save, so no server restarts are required.
+
+This dramatically improves development speed.
+
+For more details on hot-reloading check out PlayCanvas [User Manual](https://developer.playcanvas.com/en/user-manual/scripting/hot-reloading/).

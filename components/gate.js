@@ -8,9 +8,21 @@ Gate.prototype.initialize = function() {
     this.time = 0;
     this.activations = 0;
 
-    this.entity.on('activation', (activated) => {
-        this.activations += activated ? 1 : -1;
-    });
+    this.entity.on('activation', this.onActivation, this);
+};
+
+Gate.prototype.swap = function(old) {
+    this.defaultPositionY = old.defaultPositionY;
+    this.vec3 = old.vec3;
+    this.time = old.time;
+    this.activations = old.activations;
+
+    old.entity.off('activation', old.onActivation, old);
+    this.entity.on('activation', this.onActivation, this);
+};
+
+Gate.prototype.onActivation = function(activated) {
+    this.activations += activated ? 1 : -1;
 };
 
 Gate.prototype.update = function(dt) {
