@@ -18,9 +18,7 @@ const credentials = { key: privateKey, cert: certificate };
 const server = https.createServer(credentials, app);
 server.listen(8080);
 
-
 await pn.start({
-    levelProviderPath: './file-level-provider.js',
     scriptsPath: 'components',
     templatesPath: 'templates',
     server: server,

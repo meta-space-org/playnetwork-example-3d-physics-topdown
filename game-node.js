@@ -1,5 +1,5 @@
 import node from 'playnetwork/node';
-import { workerData } from 'worker_threads';
+import FileLevelProvider from './file-level-provider.js'
 
 node.rooms.on('create', async (from, data) => {
     const room = await node.rooms.create(data.levelId, data.tickrate);
@@ -14,4 +14,4 @@ node.rooms.on('join', async (from, room) => {
 
 node.on('error', (err) => console.error(err));
 
-node.start();
+node.start(new FileLevelProvider('./levels'));
