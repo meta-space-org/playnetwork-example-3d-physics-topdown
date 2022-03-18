@@ -4,7 +4,6 @@ import * as https from 'https';
 import fs from 'fs';
 
 import pn from 'playnetwork';
-import FileLevelProvider from './file-level-provider.js';
 
 const app = express();
 
@@ -19,18 +18,11 @@ const credentials = { key: privateKey, cert: certificate };
 const server = https.createServer(credentials, app);
 server.listen(8080);
 
-await pn.initialize({
-    levelProvider: new FileLevelProvider('./levels'),
+
+await pn.start({
+    levelProviderPath: './file-level-provider.js',
     scriptsPath: 'components',
     templatesPath: 'templates',
-    server: server
-});
-
-pn.rooms.on('create', async (from, data) => {
-    const room = await pn.rooms.create(data.levelId, data.tickrate);
-    room.join(from);
-});
-
-pn.rooms.on('join', async (from, room) => {
-    room.join(from);
+    server: server,
+    nodePath: './game-node.js'
 });
