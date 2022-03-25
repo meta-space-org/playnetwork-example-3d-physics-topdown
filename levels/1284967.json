@@ -38,7 +38,15 @@
             "skyboxMip": 0,
             "lightmapSizeMultiplier": 16,
             "lightmapMaxResolution": 2048,
-            "lightmapMode": 1
+            "lightmapMode": 1,
+            "lightmapFilterEnabled": false,
+            "lightmapFilterRange": 10,
+            "lightmapFilterSmoothness": 0.2,
+            "ambientBake": false,
+            "ambientBakeNumSamples": 1,
+            "ambientBakeSpherePart": 0.4,
+            "ambientBakeOcclusionBrightness": 0,
+            "ambientBakeOcclusionContrast": 0
         }
     },
     "entities": {
@@ -3000,7 +3008,7 @@
         }
     },
     "created": "2021-10-26T14:13:10.327Z",
-    "checkpoint_id": "b744ec2b-e0c5-4305-bb08-8a72aad97bd8",
+    "checkpoint_id": "801c836a-f6db-4b81-832d-65fbc6b427e5",
     "item_id": "1284967",
     "branch_id": "7947904f-4604-44be-bc84-6d9559bd9487"
 }
