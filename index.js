@@ -22,5 +22,6 @@ await pn.start({
     scriptsPath: 'components',
     templatesPath: 'templates',
     server: server,
+    useAmmo: true,
     nodePath: './game-node.js'
 });
