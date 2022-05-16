@@ -12,6 +12,6 @@
   "type": "module",
   "dependencies": {
     "express": "^4.17.3",
-    "playnetwork": "^0.4.3"
+    "playnetwork": "^0.4.7"
   }
 }
