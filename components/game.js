@@ -2,9 +2,9 @@ var Game = pc.createScript('game');
 
 Game.prototype.initialize = function() {
     this.networkEntities = this.app.room.networkEntities;
-    this.players = new Map();
+    this.users = new Map();
 
-    this.tplPlayer = this.app.assets.get(61886320).resource;
+    this.tplUser = this.app.assets.get(61886320).resource;
 
     this.app.room.on('join', this.onJoin, this);
     this.app.room.on('leave', this.onLeave, this);
@@ -17,9 +17,9 @@ Game.prototype.initialize = function() {
 
 Game.prototype.swap = function(old) {
     this.networkEntities = old.networkEntities;
-    this.players = old.players;
+    this.users = old.users;
 
-    this.tplPlayer = old.tplPlayer;
+    this.tplUser = old.tplUser;
 
     old.app.room.off('join', old.onJoin, this);
     old.app.room.off('leave', old.onLeave, this);
@@ -28,28 +28,28 @@ Game.prototype.swap = function(old) {
     this.app.room.on('leave', this.onLeave, this);
 };
 
-Game.prototype.onJoin = function(player) {
-    // player entity
-    const entity = this.tplPlayer.instantiate(this.app);
-    entity.name = 'Player ' + player.id;
-    entity.script.networkEntity.owner = player.id;
+Game.prototype.onJoin = function(user) {
+    // user entity
+    const entity = this.tplUser.instantiate(this.app);
+    entity.name = 'User ' + user.id;
+    entity.script.networkEntity.owner = user.id;
     this.entity.addChild(entity);
-    this.players.set(player.id, entity);
+    this.users.set(user.id, entity);
 };
 
-Game.prototype.onLeave = function(player) {
-    const entity = this.players.get(player.id);
+Game.prototype.onLeave = function(user) {
+    const entity = this.users.get(user.id);
     if (!entity) return;
 
     entity.destroy();
-    this.players.delete(player.id);
+    this.users.delete(user.id);
 
-    if (this.app.room.players.size === 0)
+    if (this.app.room.users.size === 0)
         this.app.room.destroy();
 };
 
 Game.prototype.toData = function() {
     return {
-        players: this.players
+        users: this.users
     };
 };

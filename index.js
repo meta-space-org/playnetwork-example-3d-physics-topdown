@@ -18,6 +18,18 @@ const credentials = { key: privateKey, cert: certificate };
 const server = https.createServer(credentials, app);
 server.listen(8080);
 
+pn.on('room:create', (from, data) => {
+    console.log('room:create', from, data);
+});
+
+pn.on('room:join', (from, data) => {
+    console.log('room:join', from, data);
+});
+
+pn.on('room:leave', (from, data) => {
+    console.log('room:leave', from, data);
+});
+
 await pn.start({
     scriptsPath: 'components',
     templatesPath: 'templates',
