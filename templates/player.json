@@ -82,6 +82,11 @@
                                             "ignoreForOwner": true
                                         },
                                         {
+                                            "path": "scale",
+                                            "interpolate": true,
+                                            "ignoreForOwner": false
+                                        },
+                                        {
                                             "path": "rigidbody.angularVelocity",
                                             "interpolate": true,
                                             "ignoreForOwner": true

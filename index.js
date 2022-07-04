@@ -5,6 +5,8 @@ import fs from 'fs';
 
 import pn from 'playnetwork';
 
+import FileLevelProvider from './file-level-provider.js';
+
 const app = express();
 
 app.get('/pn.js', (_, res) => {
@@ -16,7 +18,7 @@ const certificate = fs.readFileSync('./ssl/cert.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 
 const server = https.createServer(credentials, app);
-server.listen(8080);
+server.listen(parseInt(process.argv[2]) || 8080);
 
 pn.on('room:create', (from, data) => {
     console.log('room:create', from, data);
@@ -35,5 +37,5 @@ await pn.start({
     templatesPath: 'templates',
     server: server,
     useAmmo: true,
-    nodePath: './game-node.js'
+    levelProvider: new FileLevelProvider('levels')
 });

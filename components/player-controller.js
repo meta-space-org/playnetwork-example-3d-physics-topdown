@@ -11,6 +11,10 @@ PlayerController.prototype.initialize = function() {
     this.user.on('input', this.setInput, this);
     this.user.once('leave', this.removeInputHandler, this);
     this.once('destroy', this.removeInputHandler, this);
+
+    this.user.on('testOOO', () => {
+        this.entity.setLocalScale(4, 4, 4);
+    });
 };
 
 PlayerController.prototype.swap = function(old) {
@@ -29,8 +33,8 @@ PlayerController.prototype.swap = function(old) {
     }
 };
 
-PlayerController.prototype.setInput = function(from, data) {
-    if (from !== this.user) return;
+PlayerController.prototype.setInput = function(sender, data) {
+    if (sender !== this.user) return;
 
     this.entity.rigidbody.teleport(data.position.x, data.position.y, data.position.z);
     this.entity.rigidbody.linearVelocity = this.entity.rigidbody.linearVelocity.set(data.linearVelocity.x, data.linearVelocity.y, data.linearVelocity.z);
