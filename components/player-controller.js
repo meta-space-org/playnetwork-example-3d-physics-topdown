@@ -8,7 +8,7 @@ PlayerController.prototype.initialize = function() {
 
     if (!this.user) return;
 
-    this.user.on('input', this.setInput, this);
+    this.entity.networkEntity.on('input', this.setInput, this);
     this.user.once('leave', this.removeInputHandler, this);
     this.once('destroy', this.removeInputHandler, this);
 
