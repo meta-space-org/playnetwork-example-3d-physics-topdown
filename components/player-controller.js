@@ -11,10 +11,6 @@ PlayerController.prototype.initialize = function() {
     this.entity.networkEntity.on('input', this.setInput, this);
     this.user.once('leave', this.removeInputHandler, this);
     this.once('destroy', this.removeInputHandler, this);
-
-    this.user.on('testOOO', () => {
-        this.entity.setLocalScale(4, 4, 4);
-    });
 };
 
 PlayerController.prototype.swap = function(old) {
