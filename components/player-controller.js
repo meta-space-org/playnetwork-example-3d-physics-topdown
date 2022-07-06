@@ -4,33 +4,33 @@ PlayerController.attributes.add('speed', { type: 'number' });
 PlayerController.attributes.add('jumpForce', { type: 'number', default: 1500 });
 
 PlayerController.prototype.initialize = function() {
-    this.player = this.entity.networkEntity.player;
+    this.user = this.entity.networkEntity.user;
 
-    if (!this.player) return;
+    if (!this.user) return;
 
-    this.player.on('input', this.setInput, this);
-    this.player.once('leave', this.removeInputHandler, this);
+    this.entity.networkEntity.on('input', this.setInput, this);
+    this.user.once('leave', this.removeInputHandler, this);
     this.once('destroy', this.removeInputHandler, this);
 };
 
 PlayerController.prototype.swap = function(old) {
-    this.player = old.player;
+    this.user = old.user;
 
-    if (old.player) {
-        old.player.off('input', old.setInput, old);
-        old.player.off('leave', old.removeInputHandler, old);
+    if (old.user) {
+        old.user.off('input', old.setInput, old);
+        old.user.off('leave', old.removeInputHandler, old);
         old.off('destroy', old.removeInputHandler, old);
     }
 
-    if (this.player) {
-        this.player.on('input', this.setInput, this);
-        this.player.once('leave', this.removeInputHandler, this);
+    if (this.user) {
+        this.user.on('input', this.setInput, this);
+        this.user.once('leave', this.removeInputHandler, this);
         this.once('destroy', this.removeInputHandler, this);
     }
 };
 
-PlayerController.prototype.setInput = function(from, data) {
-    if (from !== this.player) return;
+PlayerController.prototype.setInput = function(sender, data) {
+    if (sender !== this.user) return;
 
     this.entity.rigidbody.teleport(data.position.x, data.position.y, data.position.z);
     this.entity.rigidbody.linearVelocity = this.entity.rigidbody.linearVelocity.set(data.linearVelocity.x, data.linearVelocity.y, data.linearVelocity.z);
@@ -38,7 +38,7 @@ PlayerController.prototype.setInput = function(from, data) {
 };
 
 PlayerController.prototype.removeInputHandler = function() {
-    this.player.off('input', this.setInput, this);
+    this.user.off('input', this.setInput, this);
 };
 
 PlayerController.prototype.update = function() {

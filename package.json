@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "debug": "node --inspect index.js"
+    "debug": "node --inspect index.js",
+    "test1": "node --inspect index.js 8080",
+    "test2": "node --inspect index.js 8081"
   },
   "author": "",
   "license": "ISC",
