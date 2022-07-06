@@ -33,6 +33,7 @@ pn.on('room:leave', (from, data) => {
 });
 
 await pn.start({
+    redisUrl: 'redis://localhost:6379',
     scriptsPath: 'components',
     templatesPath: 'templates',
     server: server,
