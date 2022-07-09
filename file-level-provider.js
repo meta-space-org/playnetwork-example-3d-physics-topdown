@@ -21,6 +21,15 @@ class FileLevelProvider {
             console.error(e);
         }
     }
+
+    async has(id) {
+        try {
+            await fs.access(`${this.path}/${id}.json`);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
 }
 
 export default FileLevelProvider;
