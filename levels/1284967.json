@@ -66,7 +66,7 @@
                         "game": {
                             "enabled": true,
                             "attributes": {
-                                "playerTemplate": 61886320
+                                "userTemplate": 61886320
                             }
                         }
                     }

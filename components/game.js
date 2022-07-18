@@ -1,12 +1,12 @@
 var Game = pc.createScript('game');
 
-Game.attributes.add('playerTemplate', { type: 'asset', assetType: 'template' });
+Game.attributes.add('userTemplate', { type: 'asset', assetType: 'template' });
 
 Game.prototype.initialize = function () {
     this.networkEntities = this.app.room.networkEntities;
     this.users = new Map();
 
-    this.tplUser = this.playerTemplate.resource;
+    this.tplUser = this.userTemplate.resource;
 
     this.app.room.on('join', this.onJoin, this);
     this.app.room.on('leave', this.onLeave, this);
