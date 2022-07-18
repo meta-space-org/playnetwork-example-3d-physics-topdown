@@ -2,7 +2,13 @@
 
 Example project of [PlayNetwork](https://github.com/meta-space-org/playnetwork), implementing multiplayer top-down 3D platformer with physics.
 
-In this example we have: client controlled player capsules, buttons that activate gates, some spare spheres, and floor cells that change colors when player steps on them. Client is authoritative on player capsule, and the rest is server authoritative. Running Ammo.js physics on the server, and replicated simulation on the client with interpolation.
+In this example we have:
+- Client controlled player capsules.
+- Buttons that activate gates.
+- Some physics spheres.
+- Floor cells that change colors when player steps on them.
+
+Client is authoritative on player capsule, and the rest is server authoritative. Ammo.js physics runs on the server, and replicates simulation on the client with interpolation.
 
 # Demo 🚀
 
@@ -14,20 +20,37 @@ https://playcanvas.com/project/857037/overview/playnetworktopdownexample
 
 # Installation
 
-#### Install server-side:
+### Prerequisites
+
+You need to have [Redis installed](https://redis.io/docs/getting-started/installation/) and running.
+
+### Install server-side:
 
 ```bash
 git clone git@github.com:meta-space-org/playnetwork-example-3d-physics-topdown.git ./example-topdown
 cd example-topdown
 npm install
-npm run start
+cp .env.example .env
 ```
 
-#### Fork the client:
+Fill in .env file with your own data.
+
+You need to create an trust [HTTPS certificate for localhost](https://gist.github.com/cecilemuller/9492b848eb8fe46d462abeb26656c4f8)<br />
+Place generated `localhost.crt`, and `localhost.key` in the root `ssl` folder.
+
+And now you can run your server:
+
+```bash
+npm start
+```
+
+Make sure you can access https://localhost:8080/pn.js in your browser.
+
+### Fork the client:
 
 Navigate to https://playcanvas.com/project/857037/overview/playnetworktopdownexample and Fork it.
 
-#### Run it:
+### Run it:
 
 Open Editor of forked client, select `Lobby` scene. Hit **Launch** 🚀.
 

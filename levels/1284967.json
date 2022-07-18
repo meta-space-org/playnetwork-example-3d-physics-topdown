@@ -438,7 +438,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -557,7 +557,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -676,7 +676,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -795,7 +795,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1222,7 +1222,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1339,7 +1339,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1457,7 +1457,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1620,7 +1620,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1821,7 +1821,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -1919,7 +1919,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -2017,7 +2017,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -2115,7 +2115,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -2213,7 +2213,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
@@ -2311,7 +2311,7 @@
                         "networkEntity": {
                             "enabled": true,
                             "attributes": {
-                                "id": 0,
+                                "id": "",
                                 "owner": "",
                                 "properties": [
                                     {
