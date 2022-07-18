@@ -2,7 +2,7 @@ var Gate = pc.createScript('gate');
 
 Gate.attributes.add('positionYCurve', { type: 'curve' });
 
-Gate.prototype.initialize = function() {
+Gate.prototype.initialize = function () {
     this.defaultPositionY = this.entity.getPosition().y;
     this.vec3 = new pc.Vec3();
     this.time = 0;
@@ -11,7 +11,7 @@ Gate.prototype.initialize = function() {
     this.entity.on('activation', this.onActivation, this);
 };
 
-Gate.prototype.swap = function(old) {
+Gate.prototype.swap = function (old) {
     this.defaultPositionY = old.defaultPositionY;
     this.vec3 = old.vec3;
     this.time = old.time;
@@ -21,11 +21,11 @@ Gate.prototype.swap = function(old) {
     this.entity.on('activation', this.onActivation, this);
 };
 
-Gate.prototype.onActivation = function(activated) {
+Gate.prototype.onActivation = function (activated) {
     this.activations += activated ? 1 : -1;
 };
 
-Gate.prototype.update = function(dt) {
+Gate.prototype.update = function (dt) {
     this.time += this.activations > 0 ? dt : -dt;
 
     this.time = pc.math.clamp(this.time, 0, 1);

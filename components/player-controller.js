@@ -3,7 +3,7 @@ var PlayerController = pc.createScript('playerController');
 PlayerController.attributes.add('speed', { type: 'number' });
 PlayerController.attributes.add('jumpForce', { type: 'number', default: 1500 });
 
-PlayerController.prototype.initialize = function() {
+PlayerController.prototype.initialize = function () {
     this.user = this.entity.networkEntity.user;
 
     if (!this.user) return;
@@ -13,7 +13,7 @@ PlayerController.prototype.initialize = function() {
     this.once('destroy', this.removeInputHandler, this);
 };
 
-PlayerController.prototype.swap = function(old) {
+PlayerController.prototype.swap = function (old) {
     this.user = old.user;
 
     if (old.user) {
@@ -29,7 +29,7 @@ PlayerController.prototype.swap = function(old) {
     }
 };
 
-PlayerController.prototype.setInput = function(sender, data) {
+PlayerController.prototype.setInput = function (sender, data) {
     if (sender !== this.user) return;
 
     this.entity.rigidbody.teleport(data.position.x, data.position.y, data.position.z);
@@ -37,11 +37,11 @@ PlayerController.prototype.setInput = function(sender, data) {
     this.entity.rigidbody.angularVelocity = this.entity.rigidbody.angularVelocity.set(data.angularVelocity.x, data.angularVelocity.y, data.angularVelocity.z);
 };
 
-PlayerController.prototype.removeInputHandler = function() {
+PlayerController.prototype.removeInputHandler = function () {
     this.user.off('input', this.setInput, this);
 };
 
-PlayerController.prototype.update = function() {
+PlayerController.prototype.update = function () {
     // respawn if fell below the floor
     if (this.entity.getPosition().y < -4) {
         this.entity.setPosition(0, 4, 0);

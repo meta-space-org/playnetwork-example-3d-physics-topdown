@@ -40,5 +40,5 @@ await pn.start({
     templatesPath: 'templates',
     server: server,
     useAmmo: true,
-    levelProvider: new FileLevelProvider('levels')
+    levelProvider: new FileLevelProvider('levels'),
 });

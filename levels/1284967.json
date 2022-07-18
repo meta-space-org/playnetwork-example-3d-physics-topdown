@@ -65,7 +65,9 @@
                     "scripts": {
                         "game": {
                             "enabled": true,
-                            "attributes": {}
+                            "attributes": {
+                                "playerTemplate": 61886320
+                            }
                         }
                     }
                 }

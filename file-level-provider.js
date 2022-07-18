@@ -1,9 +1,5 @@
 import * as fs from 'fs/promises';
 
-// TODO
-// Create BaseLevelProvider class, with methods to override as part of library
-// So it is extended by speicifc level providers and require methods implementations
-
 class FileLevelProvider {
     constructor(path) {
         this.path = path;
