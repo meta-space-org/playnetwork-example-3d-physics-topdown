@@ -1,9 +1,5 @@
 import * as fs from 'fs/promises';
 
-// TODO
-// Create BaseLevelProvider class, with methods to override as part of library
-// So it is extended by speicifc level providers and require methods implementations
-
 class FileLevelProvider {
     constructor(path) {
         this.path = path;
@@ -19,6 +15,15 @@ class FileLevelProvider {
             return await fs.readFile(`${this.path}/${id}.json`);
         } catch (e) {
             console.error(e);
+        }
+    }
+
+    async has(id) {
+        try {
+            await fs.access(`${this.path}/${id}.json`);
+            return true;
+        } catch (e) {
+            return false;
         }
     }
 }
